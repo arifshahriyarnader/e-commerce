@@ -25,6 +25,36 @@ const ProductSchema = new mongoose.Schema(
     userId: {
       type: mongoose.Types.ObjectId,
       ref: "User",
+import mongoose from 'mongoose';
+
+
+const ProductSchema=new mongoose.Schema({
+    name:{
+        type:String,
+        required:true
+    },
+    description:{
+        type:String
+    },
+    madeIn:{
+        type:String
+    },
+    category:{
+        type:String
+    },
+    price:{
+        type:Number
+    },
+    pQty:{
+        type:Number
+    },
+    isDeleted:{
+        type:Boolean,
+        default:false
+    },
+    userId:{
+        type:mongoose.Types.ObjectId,
+        ref:'User'
     },
     fileId:{
         type:mongoose.Types.ObjectId,
@@ -37,3 +67,8 @@ const ProductSchema = new mongoose.Schema(
 );
 
 export const Product = mongoose.model("Product", ProductSchema);
+},{
+    timestamps:true
+})
+
+export const Product =mongoose.model('Product', ProductSchema);
